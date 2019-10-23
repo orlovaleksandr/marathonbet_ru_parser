@@ -4,6 +4,8 @@
 Шаги для запуска проекта:
 
 - Переименовать .env.example в .env и указать ваши настройки для подключения к базе данных MySql.
+- Подгрузить библиотеки: php composer install
+- Подгругить бутстрап: yarn install или npm install
 - Запустить проект командой: php artisan serve
 - Запустить миграции: php artisan migrate
 
