@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Match;
 use App\MatchContent;
+use Doctrine\DBAL\Schema\Schema;
 use Dotenv\Parser;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -11,6 +12,12 @@ class ParserController extends Controller
 {
     public function createMatches($pages = 999)
     {
+
+        if (sizeof(Match::get())) {
+            Match::truncate();
+            MatchContent::truncate();
+        }
+
         $allContent = [];
 
         for ($i = 0; $i < $pages; $i++) {
